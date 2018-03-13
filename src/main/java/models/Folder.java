@@ -1,3 +1,7 @@
+package models;
+
+import models.File;
+
 import java.util.Set;
 
 public class Folder {

@@ -1,3 +1,5 @@
+package models;
+
 public class File {
     private int id;
     private String name;
