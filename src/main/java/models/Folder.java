@@ -10,13 +10,15 @@ import java.util.Set;
 public class Folder {
     private int id;
     private String title;
+    private Owner owner;
     private Set<File> files;
 
     public Folder() {
     }
 
-    public Folder(String title) {
+    public Folder(String title, Owner owner) {
         this.title = title;
+        this.owner = owner;
     }
 
 
@@ -47,5 +49,15 @@ public class Folder {
 
     public void setFiles(Set<File> files) {
         this.files = files;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="owner_id", nullable = false)
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }
