@@ -15,6 +15,9 @@ public class Runner {
         Folder folder1 = new Folder("important_stuff", owner);
         DBHelper.save(folder1);
 
+        Folder folder2 = new Folder("Java", owner);
+        DBHelper.save(folder2);
+
 
         File file1 = new File("CV", "txt", 125, folder1);
         DBHelper.save(file1);
@@ -28,6 +31,8 @@ public class Runner {
         List<File> files = DBHelper.getAll(File.class);
 
         List<File> folderFiles = DBHelper.getFilesFromFolder(folder1);
+
+        List<Folder> foundFolders = DBHelper.getFoldersFromOwner(owner);
 
 
     }

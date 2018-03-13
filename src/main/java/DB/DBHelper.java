@@ -85,6 +85,7 @@ public class DBHelper {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Folder> results = null;
         Criteria criteria = session.createCriteria(Folder.class);
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         criteria.add(Restrictions.eq("owner", owner));
         results = getList(criteria);
         return results;
