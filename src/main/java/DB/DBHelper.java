@@ -2,6 +2,7 @@ package DB;
 
 import models.File;
 import models.Folder;
+import models.Owner;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -78,6 +79,15 @@ public class DBHelper {
         results = getList(criteria);
         return results;
 
+    }
+
+    public static List<Folder> getFoldersFromOwner(Owner owner){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Folder> results = null;
+        Criteria criteria = session.createCriteria(Folder.class);
+        criteria.add(Restrictions.eq("owner", owner));
+        results = getList(criteria);
+        return results;
     }
 
 
